@@ -1,0 +1,60 @@
+{
+  "name": "@caracal7/nativescript-app-sync",
+  "version": "1.0.0",
+  "description": "Use AppSync to hot deploy updates to your app.",
+  "main": "app-sync",
+  "nativescript": {
+    "platforms": {
+      "android": "4.0.0",
+      "ios": "4.0.0"
+    },
+    "hooks": [
+      {
+        "type": "after-prepare",
+        "script": "scripts/ios/appsync-ios.js",
+        "name": "appsync-ios",
+        "inject": true
+      },
+      {
+        "type": "after-prepare",
+        "script": "scripts/android/appsync-android.js",
+        "name": "appsync-android",
+        "inject": true
+      }
+    ]
+  },
+  "scripts": {
+      "postinstall": "node postinstall-hooks.js",
+      "preuninstall": "node preuninstall-hooks.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caracal7/nativescript-app-sync.git"
+  },
+  "keywords": [
+    "ecosystem:nativescript",
+    "NativeScript",
+    "CodePush",
+    "Code Push",
+    "AppSync",
+    "App Sync",
+    "Hot deploy",
+    "App update"
+  ],
+  "author": {
+    "name": "Eddy Verbruggen",
+    "email": "eddyverbruggen@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/caracal7/nativescript-app-sync/issues"
+  },
+  "homepage": "https://github.com/caracal7/nativescript-app-sync",
+  "readmeFilename": "README.md",
+  "dependencies": {
+    "nativescript-app-sync-sdk": "~1.0.1",
+    "nativescript-appversion": "~1.4.4",
+    "@nativescript/zip": "~6.0.0",
+    "@nativescript/hook": "~2.0.0"
+  }
+}

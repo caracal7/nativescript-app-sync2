@@ -1,0 +1,5 @@
+android {
+    buildTypes.each {
+        it.resValue "string", "APPSYNC_APK_BUILD_TIME", Long.toString(System.currentTimeMillis())
+    }
+}
