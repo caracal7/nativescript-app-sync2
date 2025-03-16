@@ -1,5 +1,5 @@
 {
-  "name": "@caracal7/nativescript-app-sync",
+  "name": "nativescript-app-sync8",
   "version": "1.0.0",
   "description": "Use AppSync to hot deploy updates to your app.",
   "main": "app-sync",

@@ -15,10 +15,13 @@ function patchUIApplicationMain(iosProjectFolder) {
 			return;
 		}
 
-		console.log('AppSync: patchUIApplicationMain');
+		//console.log('+++++++++++++++++++++++++++++++++ AppSync: patch main.m');
 
 		const appSyncFileDest = path.join(nsInteralFolder, "main.m");
 		const tnsAppSyncFileDestContents = fs.readFileSync(appSyncFileDest,  { encoding: 'utf8' });
+
+
+
 
 		// making sure we don't do this more than once
 		if (tnsAppSyncFileDestContents.indexOf("TNSAppSync") === -1) {
@@ -31,11 +34,19 @@ function patchUIApplicationMain(iosProjectFolder) {
 			);
 
 			// now inject the function call that determines the correct application path (either default or appsync'ed)
+
 			replaceInFile(
 				appSyncFileDest,
 				'baseDir = [[NSBundle mainBundle] resourcePath];',
 				'baseDir = [TNSAppSync applicationPathWithDefault:[NSBundle mainBundle].bundlePath];'
 			);
+
+			replaceInFile(
+				appSyncFileDest,
+				'config.BaseDir = baseDir;',
+				'config.BaseDir = [TNSAppSync applicationPathWithDefault:baseDir];'
+			);
+
 		}
 
 	} catch (e) {

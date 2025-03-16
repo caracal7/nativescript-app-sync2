@@ -1,7 +1,7 @@
 # NativeScript AppSync plugin
 
 
-Little bit fixed for working with NativeScript 8.8.x ❤️
+Little bit fixed for working with NativeScript 8.9.x ❤️
 
 Tested on iOS only 💁‍♂️
 
@@ -10,7 +10,7 @@ Tested on iOS only 💁‍♂️
 ### Installation
 
 ```
-npm i @caracal7/nativescript-app-sync
+npm i nativescript-app-sync8
 ```
 
 ----------------------------------------------------------------------------------------------------------
